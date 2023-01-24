@@ -1,4 +1,12 @@
 <?php
+/**
+ * Copyright (c) 2022
+ *
+ * Author: Nkosinathi Mafuleka
+ *
+ * Released under the MIT License
+ */
+
 namespace errorShow\errorQTY\Model\IsProductSalableForRequestedQtyCondition;
 
 use Magento\InventoryReservationsApi\Model\GetReservationsQuantityInterface;
