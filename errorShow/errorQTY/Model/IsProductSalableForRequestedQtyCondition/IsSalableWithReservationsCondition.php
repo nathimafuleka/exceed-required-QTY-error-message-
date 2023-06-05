@@ -92,7 +92,7 @@ class IsSalableWithReservationsCondition extends \Magento\InventorySales\Model\I
         $product = $this->loadMyProduct($sku);
         $productName = $product->getName();
 
-        $Springfield = $product->getResource()->getAttributeRawValue($product->getId(), 'Attribute_Name', $product->getStoreId());
+        $STORE_NAME = $product->getResource()->getAttributeRawValue($product->getId(), 'Attribute_Name', $product->getStoreId());
 
         $ObjectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $storeManager = $ObjectManager->get('\Magento\Store\Model\StoreManagerInterface');
@@ -107,11 +107,11 @@ class IsSalableWithReservationsCondition extends \Magento\InventorySales\Model\I
         $qtyLeftInStock = $qtyWithReservation - $stockItemConfiguration->getMinQty() - $requestedQty;
         $isEnoughQty = (bool)$stockItemData[GetStockItemDataInterface::IS_SALABLE] && $qtyLeftInStock >= 0;
 
-        if ($requestedQty>$Springfield && $selectedStore == 'Springfield') {
+        if ($requestedQty>$Springfield && $selectedStore == '{STORE_NAME}') {
             $errors = [
                 $this->productSalabilityErrorFactory->create([
                     'code' => 'is_salable_with_reservations-not_enough_qty',
-                    'message' => __('The requested qty exceeds store inventory. %1 units available at Gelmar %2.', $Springfield, $selectedStore)
+                    'message' => __('The requested qty exceeds store inventory. %1 units available at {STORE_NAME} %2.', $STORE_NAME, $selectedStore)
                 ])
             ];
 
@@ -121,7 +121,7 @@ class IsSalableWithReservationsCondition extends \Magento\InventorySales\Model\I
             $errors = [
                 $this->productSalabilityErrorFactory->create([
                     'code' => 'is_salable_with_reservations-not_enough_qty',
-                    'message' => __('The requested qty exceeds Gelmar inventory. %1 units available for this product. Please select a Gelmar store.', $availableProductQty)
+                    'message' => __('The requested qty exceeds {STORE_NAME} inventory. %1 units available for this product. Please select a {STORE_NAME} store.', $availableProductQty)
                 ])
             ];
 
