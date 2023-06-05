@@ -7,7 +7,7 @@ How to display error message when you try to add a product that has less availab
 ### Changes in code
 
 in Model/IsProductSalableForRequestedQtyCondition
-/IsSalableWithReservationsCondition.php file you need to change {STORE_NAME} to the name of the store selected and ${STORE_NAME} change it to variable you want that can hold the selected store value
+/IsSalableWithReservationsCondition.php file you need to change {STORE_NAME} to the name of the store and ${STORE_NAME} change it to variable you want that can hold the selected store value. 
 
 # installation 
 ### run the following commands
