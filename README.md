@@ -1,4 +1,6 @@
-# exceed-required-QTY-error-message
+# Magento plugin v1.0.0 for Magento v2.4.5
+
+## exceed-required-QTY-error-message
 
 How to display error message when you try to add a product that has less available quantity from selected store view. 
 
@@ -31,3 +33,4 @@ How to display error message when you try to add a product that has less availab
  ```
   php bin/magento c:f
   ```
+
