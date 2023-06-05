@@ -2,7 +2,7 @@
 
 How to display error message when you try to add a product that has less available quantity from selected store view. 
 
-#installation 
+# installation 
 ### run the following commands
 
 ```
