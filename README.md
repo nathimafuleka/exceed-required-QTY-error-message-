@@ -1,6 +1,6 @@
 # exceed-required-QTY-error-message
 
-How to display error message when we try to add product more than available quantity from selected store view. 
+How to display error message when you try to add a product that has less available quantity from selected store view. 
 
 #installation 
 ### run the following commands
