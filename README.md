@@ -9,14 +9,14 @@ How to display error message when you try to add a product that has less availab
 in Model/IsProductSalableForRequestedQtyCondition
 /IsSalableWithReservationsCondition.php file you need to change {STORE_NAME} to the name of the store and ${STORE_NAME} change it to variable you want that can hold the selected store value. 
 
-If you have couple of stores you can duplicate this line of code and than follow the above changes:
+1. <b>If you have couple of stores you can duplicate this line of code and than follow the above changes:</b>
 
 ```
-if ($requestedQty>${STORE_NAME} && $selectedStore == 'STORE_NAME') {
+if ($requestedQty>$STORE_NAME && $selectedStore == 'STORE_NAME') {
             $errors = [
                 $this->productSalabilityErrorFactory->create([
                     'code' => 'is_salable_with_reservations-not_enough_qty',
-                    'message' => __('The requested qty exceeds store inventory. %1 units available at {STORE_NAME} %2.', $STORE_NAME, $selectedStore)
+                    'message' => __('The requested qty exceeds store inventory. %1 units available at STORE_NAME %2.', $STORE_NAME, $selectedStore)
                 ])
             ];
 
@@ -24,6 +24,11 @@ if ($requestedQty>${STORE_NAME} && $selectedStore == 'STORE_NAME') {
         }
 ```
 
+2. <b>you can find the attribute code in your admin dashboard and than insert it in this line below and replace the part that says "Attribute_Code ":</b>
+
+```
+$STORE_NAME = $product->getResource()->getAttributeRawValue($product->getId(), 'Attribute_Code', $product->getStoreId());
+```
 # installation 
 ### run the following commands
 
